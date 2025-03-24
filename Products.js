@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const Cart = document.getElementById('Cart');
     const cartItems = [];
      const viewCartButton = document.getElementById("view-cart");
+
+     const search= document.getElementById('search');
     async function Apis() {
         try {
             const response = await fetch('https://fakestoreapi.com/products');
@@ -40,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             Container.innerHTML = "<p>No Products Found.</p>"; 
         }
+    
     }
 
     // function addToCart(product) {
@@ -54,7 +57,15 @@ viewCartButton.addEventListener("click", () => {
 
     function addToCart(product) {
         let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-        cartItems.push(product);
+        const existingitems= cartItems.find(item=>item.id=== product.id);
+        if(existingitems)
+            existingitems.count+=1;
+        else
+        {
+            product.count=1;
+            cartItems.push(product);
+        }
+       
         localStorage.setItem("cart", JSON.stringify(cartItems));
     
         console.log("Cart Updated:", cartItems);
@@ -123,6 +134,23 @@ viewCartButton.addEventListener("click", () => {
             : data;
 
         Apicall();
+    }
+
+    function Search()
+    {
+        search.addEventListener('click',e=>{
+            let searcheditem=e.target.value.toLowerCase();
+            console.log(searcheditem);
+            let searchcategories=document.querySelectorAll('.category')
+            searchcategories.forEach(searchcategorie=>
+            {
+                if(searchcategorie.textContent.toLowerCase().includes(searcheditem))
+                    searchcategorie.style.block='block';
+                else
+                searchcategorie.style.block='none';
+            }
+            )
+        });
     }
 
     Apis();

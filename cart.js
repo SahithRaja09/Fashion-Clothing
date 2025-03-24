@@ -14,6 +14,8 @@ function displayCart() {
 
     cartItems.forEach((item, index) => {
         item.count = item.count || 1;
+        item.Originalprice=  item.Originalprice||item.price;
+        item.price= item.count*item.Originalprice;
         let cartItem = document.createElement("div");
         cartItem.className = "Card";
         cartItem.innerHTML = `
@@ -37,7 +39,9 @@ function displayCart() {
     document.querySelectorAll('.inc').forEach(button => {
         button.addEventListener('click', Additem);
     });
-    // document.querSelec
+    document.querySelectorAll('.Prog-count').forEach(span=>{
+        span.addEventListener('click',Pricing);
+    })
 }
 
 function removeItem(event) {
@@ -48,7 +52,10 @@ function removeItem(event) {
     
     // count++;
     if(item.count>1)
-        item.count=item.count-1;
+  {
+    item.count=item.count-1;
+    item.price= item.count*item.Originalprice;
+  }
     else
     {
     cartItems = cartItems.filter((val, indx) => indx != index)
@@ -64,7 +71,10 @@ function Additem(event) {
     const index=parseInt(event.target.getAttribute("data"));
     const item = cartItems[index];
     if(item)
-        item.count=(item.count || 0)+1;
+{
+    item.count=(item.count || 0)+1;
+    item.price= item.count*item.Originalprice;
+}
     else
     cartItems[index]={...item,count:1};
     // item.count=1;
@@ -72,6 +82,11 @@ function Additem(event) {
     localStorage.setItem("cart", JSON.stringify(cartItems));
     displayCart();        
     console.log(cartItems);
+}
+
+function Pricing(event)
+{
+ 
 }
 displayCart();
 
