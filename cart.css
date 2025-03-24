@@ -1,0 +1,93 @@
+.Header .b2-products
+{
+    text-decoration: none;
+    color: white;
+    background-color: hsl(237, 46%, 18%);
+    padding: 12px;
+    font-size: 18px;
+    font-weight: 400;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+}
+
+.Progress {
+    display: flex;
+    gap: 10px;
+    margin:15px;
+}
+
+.Progress button {
+    font-size: 16px;
+    width: 45px;
+    color: white;
+    background-color: #191b43;
+    /* background-color: #262d8c; */
+}
+.cart-heading
+{
+    text-align: center;
+    /* color:#191b43; */
+    color:white;
+    font-size: 40px;
+    margin:20px;
+}
+
+#cart-container
+{
+    /* background-color: black; */
+    background-color: #191b43;
+    width:90%;
+    margin:0 auto;
+}
+#cart-items
+{
+    gap:20px;
+    text-align: center;
+}
+.Empty-info .Empty
+{
+    color:#fff;
+    font-size:30px;
+    margin-bottom: 25px;
+}
+#cart-items .willing
+{
+    text-decoration: none;
+    background-color:white;
+    color:#191b43;
+    padding:12px;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top:30px;
+    border-radius:50px;
+    gap:10px;
+    align-items: center;
+    display: flex;
+}
+.Card p{
+    font-size: 16px;
+    color: #191b43;
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 600;
+    width: 100%;
+    margin: 10px;
+    min-height: 30px;
+}
+
+.Card .price
+{
+    height: 40px;
+    background-color: #191b43;
+    color: aliceblue;
+    text-align: center;
+    /* width: 45%; */
+    padding:15px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
